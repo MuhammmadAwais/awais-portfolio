@@ -45,9 +45,7 @@ export const Navbar = () => {
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-6">
-          {" "}
-          {/* Use items-center */}
+        <div className="hidden md:flex items-center space-x-6"> {/* Use items-center */}
           {navItems.map((item, key) => (
             <a
               key={key}
@@ -90,9 +88,7 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <div className="pt-4">
-              {" "}
-              {/* Add some spacing */}
+            <div className="pt-4"> {/* Add some spacing */}
               <ThemeToggle /> {/* <--- ADD THEME TOGGLE FOR MOBILE */}
             </div>
           </div>
