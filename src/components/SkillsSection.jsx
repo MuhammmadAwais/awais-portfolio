@@ -24,7 +24,7 @@ const skills = [
   { name: "Docker", level: 5, category: "tools" },
   { name: "Figma", level: 55, category: "tools" },
   { name: "VS Code", level: 80, category: "tools" },
-  { name: "WordPress", level: 80, category: "tools" },
+  { name: "WordPress-Elementor", level: 80, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
