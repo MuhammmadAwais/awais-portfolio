@@ -1,3 +1,5 @@
+// src/components/SkillsSection.jsx
+
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -30,7 +32,9 @@ const skills = [
 const categories = ["all", "frontend", "backend", "tools"];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  // --- CHANGE 1: Set the default active category to 'frontend' ---
+  // This prevents all skills from showing by default on mobile.
+  const [activeCategory, setActiveCategory] = useState("frontend");
 
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
@@ -42,13 +46,18 @@ export const SkillsSection = () => {
           My <span className="text-primary"> Skills</span>
         </h2>
 
+        {/* This div is now always visible */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
+          {categories.map((category) => (
             <button
-              key={key}
+              key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
                 "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                // --- CHANGE 2: Conditionally hide the 'all' button ---
+                // We add a class to hide the button if the category is 'all' on mobile,
+                // and show it on medium screens and up.
+                category === "all" ? "hidden md:inline-block" : "inline-block",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-forefround hover:bd-secondary"
